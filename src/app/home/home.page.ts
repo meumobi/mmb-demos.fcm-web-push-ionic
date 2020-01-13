@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AngularFireMessaging } from '@angular/fire/messaging';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +8,22 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  constructor(
+    private afMessaging: AngularFireMessaging
+  ) {
+    this.listenFireMessaging();
+  }
 
+  requestPermission() {
+    this.afMessaging.requestToken
+      .subscribe(
+      (token) => { console.log('Permission granted! Token: ', token); },
+      (error) => { console.error(error); }
+    );
+  }
+
+  listenFireMessaging() {
+    this.afMessaging.messages
+      .subscribe((message) => { console.log(message); });
+  }
 }
