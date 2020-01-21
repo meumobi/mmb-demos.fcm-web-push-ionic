@@ -9,8 +9,3 @@ firebase.initializeApp({
 });
 
 const messaging = firebase.messaging();
-
-// This step is only mentioned in this guide: https://firebase.google.com/docs/cloud-messaging/js/client#configure_web_credentials_with_fcm
-// Don't know if it's actually needed
-// Add the public key generated from the console here.
-// messaging.usePublicVapidKey('BFZSr4pR-YFsTxygWUf4HlNlzDtn-eIQJmJZVQce01Ilm9b0ajcKvn1wczReayNdUfBPYcrI7oOwGEga-h4EFcA');
